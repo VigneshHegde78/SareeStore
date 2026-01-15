@@ -23,11 +23,11 @@ export default async function ProductPage({ params }: PageProps) {
     <main className="p-10 grid md:grid-cols-2 gap-10">
       <div className="bg-gray-100 h-96 flex items-center justify-center">
         <Image
-          src={product.image_url || "/placeholder.png"}
+          src={product.image_url[0] || "/placeholder.png"}
           alt={product.name}
           width={400}
           height={500}
-          className="object-cover mb-3"
+          className="object-fill mb-3"
         />
       </div>
 

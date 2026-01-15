@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Product } from "@/types";
+import Link from "next/link";
 
 export default function ProductCard({ product }: { product: Product }) {
   const imageSrc =
@@ -8,7 +9,10 @@ export default function ProductCard({ product }: { product: Product }) {
       : "/placeholder.png";
 
   return (
-    <div className="border p-4 rounded-lg hover:shadow-lg transition-shadow">
+    <Link
+      href={`/product/${product.id}`}
+      className="border p-4 rounded-lg hover:shadow-lg transition-shadow"
+    >
       <div className="bg-gray-100 flex items-center justify-center">
         <Image
           src={imageSrc}
@@ -21,6 +25,6 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <h2 className="mt-2 font-semibold">{product.name}</h2>
       <p className="text-gray-700">₹{product.price}</p>
-    </div>
+    </Link>
   );
 }
