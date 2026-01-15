@@ -4,11 +4,6 @@ import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Authentic Sarees Online | Matrika Angan",
-  description: "Buy authentic Indian sarees online with fast delivery.",
-};
-
 export default function AdminLayout({
   children,
 }: {
