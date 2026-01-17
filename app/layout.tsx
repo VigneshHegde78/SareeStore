@@ -1,6 +1,7 @@
 import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
 import Header from "@/components/Header";
+import { ThemeProvider } from "next-themes";
 
 export default function RootLayout({
   children,
@@ -8,11 +9,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <CartProvider>
-          <Header />
-          {children}
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Header />
+            {children}
+          </ThemeProvider>
         </CartProvider>
       </body>
     </html>

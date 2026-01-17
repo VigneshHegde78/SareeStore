@@ -13,7 +13,7 @@ export default function ProductCard({ product }: { product: Product }) {
       href={`/product/${product.id}`}
       className="border p-4 rounded-lg hover:shadow-lg transition-shadow"
     >
-      <div className="bg-gray-100 flex items-center justify-center">
+      <div className="card border-soft hover:shadow-lg">
         <Image
           src={imageSrc}
           alt={product.name}
@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
 
       <h2 className="mt-2 font-semibold">{product.name}</h2>
-      <p className="text-gray-700">₹{product.price}</p>
+      <p className="text-primary font-semibold text-lg">₹{product.price}</p>
     </Link>
   );
 }
