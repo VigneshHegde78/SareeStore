@@ -1,14 +1,111 @@
+@import "tailwindcss";
+
+/* ================================
+   DESIGN TOKENS
+================================ */
+
+/* LIGHT MODE */
 :root {
-  --background: #ebeeef;
-  --foreground: #171717;
+  --bg: 255 255 255; /* soft ivory */
+  --text: 17 24 39; /* deep charcoal */
+  --card: 247 219 167; /* silk gold */
+  --border: 226 232 240; /* subtle gray */
+  --primary: 0 52 89; /* royal blue */
+  --accent: 247 219 167; /* gold accent */
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+/* DARK MODE */
+html.dark {
+  --bg: 6 20 32; /* deep navy */
+  --text: 241 245 249; /* soft white */
+  --card: 15 42 64; /* muted blue */
+  --border: 30 64 89; /* steel blue */
+  --primary: 247 219 167; /* gold highlight */
+  --accent: 247 219 167;
+}
+
+/* ================================
+   GLOBAL RESETS
+================================ */
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+}
+
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ================================
+   TYPOGRAPHY
+================================ */
+
+h1,
+h2,
+h3 {
+  color: rgb(var(--primary));
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ================================
+   COMPONENT PRIMITIVES
+================================ */
+
+.card {
+  background-color: rgb(var(--card));
+  border-radius: 0.75rem;
+}
+
+.surface {
+  background-color: rgb(var(--bg));
+}
+
+.border-soft {
+  border: 1px solid rgb(var(--border));
+}
+
+.btn-primary {
+  background-color: rgb(var(--primary));
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid rgb(var(--primary));
+  color: rgb(var(--primary));
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+}
+
+/* ================================
+   SCROLLBAR (OPTIONAL)
+================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary));
+  border-radius: 10px;
 }

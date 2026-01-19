@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Product } from "@/types";
 import Link from "next/link";
+import AddToCartButton from "./AddToCartButton";
 
 export default function ProductCard({ product }: { product: Product }) {
   const imageSrc =
@@ -11,20 +12,19 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/product/${product.id}`}
-      className="border p-4 rounded-lg hover:shadow-lg transition-shadow"
-    >
-      <div className="card border-soft hover:shadow-lg">
-        <Image
-          src={imageSrc}
-          alt={product.name}
-          width={400}
-          height={500}
-          className="object-cover"
-        />
-      </div>
+      className="rounded-lg bg-gray-50 border border-gray-300 hover:shadow-lg transition-shadow p-3">
+      <Image
+        src={imageSrc}
+        alt={product.name}
+        width={340}
+        height={340}
+        className="object-cover rounded-lg"
+      />
 
       <h2 className="mt-2 font-semibold">{product.name}</h2>
-      <p className="text-primary font-semibold text-lg">₹{product.price}</p>
+      <p className="text-primary font-semibold text-lg mb-1">
+        ₹{product.price}
+      </p>
     </Link>
   );
 }

@@ -1,7 +1,15 @@
 import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
 import Header from "@/components/Header";
-import { ThemeProvider } from "next-themes";
+import Footer from "@/components/Footer";
+import Headline from "@/components/Headline";
+import { Satisfy } from "next/font/google";
+
+const satisfy = Satisfy({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-satisfy",
+});
 
 export default function RootLayout({
   children,
@@ -9,13 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={satisfy.className} suppressHydrationWarning>
       <body>
         <CartProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header />
-            {children}
-          </ThemeProvider>
+          <Headline />
+          <Header />
+          {children}
+          <Footer />
         </CartProvider>
       </body>
     </html>

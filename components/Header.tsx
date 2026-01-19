@@ -2,12 +2,24 @@
 
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import ThemeToggle from "./ThemeToggle";
 import "../app/styles/globals.css";
 import { LuShoppingBag } from "react-icons/lu";
 import { BsPersonFill } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
+import localFont from "next/font/local";
+
+const satisfy = localFont({
+  src: "../app/styles/fonts/Satisfy-Regular.ttf",
+  variable: "--font-satisfy",
+  weight: "700",
+  style: "normal",
+});
+
+const dancingScript = localFont({
+  src: "../app/styles/fonts/DancingScript.ttf",
+  variable: "--font-dancingscript",
+});
 
 export default function Header() {
   const { cart } = useCart();
@@ -15,15 +27,18 @@ export default function Header() {
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="flex bg-bg justify-between items-center px-10 py-4">
-      <Link href="/" className="flex space-x-3">
+    <header className={`flex bg-bg justify-between items-center px-10 py-4`}>
+      <Link href="/" className="flex space-x-5 items-center">
         <Image
           src={"/logo.png"}
           alt="Matrika Angan Logo"
           width={30}
           height={30}
         />
-        <h1 className="text-xl font-bold font-serif">Matrika Angan</h1>
+
+        <h1 className={`text-3xl font-bold ${dancingScript.className}`}>
+          Matrika Angan
+        </h1>
       </Link>
 
       <span className="text-sm text-gray-500 border flex w-1/3 justify-start items-center rounded-lg">
@@ -32,14 +47,12 @@ export default function Header() {
       </span>
 
       <span className="flex space-x-6">
-        <ThemeToggle />
-
-        <BsPersonFill size={20} />
+        <BsPersonFill size={20} className="cursor-pointer" />
 
         <Link href="/cart" className="relative">
           <LuShoppingBag size={20} />
           {count > 0 && (
-            <span className="absolute -top-2 -right-2 bg-black text-white text-xs px-2 py-0.5 rounded-full">
+            <span className="absolute -top-2 -right-2 bg-black text-white text-xs px-1.5 rounded-full">
               {count}
             </span>
           )}

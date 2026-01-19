@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 type CartItem = {
+  image_url: any;
   id: string;
   name: string;
   price: number;
