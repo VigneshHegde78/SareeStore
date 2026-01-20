@@ -2,10 +2,13 @@
 
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
-import {clearCart, useCart} from "@/context/CartContext";
-import { clear } from "console";
+import { useCart } from "@/context/CartContext";
 
-export default function FakePaymentPage({ params }: any) {
+export default function FakePaymentPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const router = useRouter();
   const { clearCart } = useCart();
 
@@ -52,8 +55,7 @@ export default function FakePaymentPage({ params }: any) {
 
       <button
         onClick={clearCart}
-        className="w-full bg-green-600 text-white py-3 rounded"
-      >
+        className="w-full bg-green-600 text-white py-3 rounded">
         Pay ₹ (Fake)
       </button>
     </main>
